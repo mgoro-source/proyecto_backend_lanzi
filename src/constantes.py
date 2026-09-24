@@ -1,7 +1,5 @@
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from datetime import datetime, timezone, timedelta
 
 # URL base de la API
 BASE_URL = '/'
@@ -23,3 +21,34 @@ ERROR_CODE_ALUMNO_NOT_FOUND    = 'alumno.not.found'
 ERROR_CODE_MATERIA_NOT_FOUND   = 'materia.not.found'
 
 EMAIL_REGEX = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+
+# valores fijos
+ESTADOS_VALIDOS = ['cancelada', 'finalizada', 'confirmada']
+ESTADO_CONFIRMADA = 'confirmada'
+CONDICION_CREACION_EXITOSA = 'Creada exitosamente'
+CONDICION_CANCELACION = "Cancelación realizada antes del horario de inicio"
+CONDICION_FINALIZACION = "Finalización confirmada tras transcurrir el turno"
+ESTADO_CANCELADA = 'cancelada'
+ESTADO_FINALIZADA = 'finalizada'
+
+LIMITE_PAGINACION_DEFECTO = 10
+OFFSET_PAGINACION_DEFECTO = 0
+LIMIT_MINIMO = 1
+LIMIT_MAXIMO = 100
+
+# constantes para reservas.py
+SQL_OBTENER_SOCIO = 'SELECT id_socio, nombre_socio, email_socio, activo FROM socios WHERE id_socio = %s'
+SQL_OBTENER_CANCHA = 'SELECT id_cancha, nombre_cancha, techada, precio_hora, activa, id_deporte_cancha FROM canchas WHERE id_cancha = %s'
+SQL_OBTENER_RESERVA_POR_ID = 'SELECT * FROM reservas WHERE id_reserva = %s'
+SQL_ULTIMO_ID_INSERTADO = 'SELECT LAST_INSERT_ID() AS id'
+
+CAMPOS_REQUERIDOS_CREACION = ['id_socio', 'id_cancha', 'fecha_hora_inicio', 'fecha_hora_fin']
+CAMPOS_PERMITIDOS_ESTADO = {'estado'}
+
+# horarios
+HORA_APERTURA_CLUB = 8
+HORA_CIERRE_CLUB = 23
+DURACION_MINIMA_HORAS = 1
+DURACION_MAXIMA_HORAS = 3
+
+ZONA_HORARIA_ARGENTINA = timezone(timedelta(hours=-3))
