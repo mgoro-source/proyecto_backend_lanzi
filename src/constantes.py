@@ -52,3 +52,29 @@ DURACION_MINIMA_HORAS = 1
 DURACION_MAXIMA_HORAS = 3
 
 ZONA_HORARIA_ARGENTINA = timezone(timedelta(hours=-3))
+
+
+DB_URL = "mysql+pymysql://usuario:pass@localhost:3306/club"  # ajustar con .env
+
+# Horario del club
+HORA_APERTURA = 8
+HORA_CIERRE = 23
+
+# Reservas
+DURACION_MIN_HORAS = 1
+DURACION_MAX_HORAS = 3
+
+# Paginación
+LIMIT_DEFAULT = 10
+LIMIT_MIN = 1
+LIMIT_MAX = 100
+OFFSET_DEFAULT = 0
+
+# Estados de reserva
+ESTADO_CONFIRMADA = "confirmada"
+ESTADO_CANCELADA = "cancelada"
+ESTADO_FINALIZADA = "finalizada"
+ESTADOS_VALIDOS = {ESTADO_CONFIRMADA, ESTADO_CANCELADA, ESTADO_FINALIZADA}
+
+# Zona horaria fija
+TZ_OFFSET = "-03:00"
