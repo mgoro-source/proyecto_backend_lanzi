@@ -32,7 +32,6 @@ def _filtros_cancha():
     return f
 
 
-# --- Importante: /canchas/disponibles ANTES de /canchas/<id> ---
 @bp.get("/canchas/disponibles")
 def disponibles():
     for req in ("fecha", "hora_inicio", "hora_fin"):
@@ -40,7 +39,7 @@ def disponibles():
             raise ValidationError(f"Falta el parámetro obligatorio '{req}'")
     filtros = _filtros_cancha()
     limit, offset = _paginacion()
-    canchas, total = service.disponibles(
+    canchas, _ = service.disponibles(
         request.args["fecha"],
         request.args["hora_inicio"],
         request.args["hora_fin"],
@@ -53,7 +52,7 @@ def disponibles():
 def listar():
     filtros = _filtros_cancha()
     limit, offset = _paginacion()
-    canchas, total = service.listar(filtros, limit, offset)
+    canchas, _ = service.listar(filtros, limit, offset)
     if not canchas:
         return "", 204
     return jsonify({"canchas": canchas, "_links": {}}), 200
@@ -64,8 +63,7 @@ def crear():
     data = request.get_json(silent=True)
     if data is None:
         raise ValidationError("El cuerpo debe ser JSON")
-    cancha = service.crear(data)
-    return jsonify(cancha), 201
+    return jsonify(service.crear(data)), 201
 
 
 @bp.get("/canchas/<int:id>")
