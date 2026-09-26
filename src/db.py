@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, text
-from constantes import DB_URL
+from src.constantes import DB_URL
 
 
 # Motor de conexion compartido por toda la aplicacion.

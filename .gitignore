@@ -1,0 +1,11 @@
+# Entorno virtual (para no subir gigas de librerías)
+.venv/
+venv/
+env/
+
+# Archivos de configuración con contraseñas
+.env
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc

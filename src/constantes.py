@@ -13,12 +13,24 @@ DB_PASSWORD = os.getenv('DB_PASSWORD', 'root')
 DB_NAME     = os.getenv('DB_NAME', 'facultad')
 DB_URL      = f'mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
+
+
 # Codigos de error
-ERROR_CODE_INVALID_BODY        = 'invalid.body'
-ERROR_CODE_INVALID_MIN_VALUE   = 'invalid.min.value'
-ERROR_CODE_INVALID_MAX_VALUE   = 'invalid.max.value'
-ERROR_CODE_ALUMNO_NOT_FOUND    = 'alumno.not.found'
-ERROR_CODE_MATERIA_NOT_FOUND   = 'materia.not.found'
+ERROR_CODE_EMPTY_BODY = 'empty.body'
+ERROR_CODE_NAME_REQUIRED = 'name.required'
+ERROR_CODE_EMAIL_REQUIRED = 'email.required'
+ERROR_CODE_EMAIL_INVALID = 'email.invalid'
+ERROR_CODE_ACTIVE_INVALID = 'active.invalid'
+ERROR_CODE_UNKNOWN_FIELD = 'unknown.field'
+ERROR_CODE_EMAIL_DUPLICATE = 'email.duplicate'
+ERROR_CODE_SOCIO_NOT_FOUND = 'socio.not.found'
+ERROR_CODE_UNKNOWN_PARAMETER = 'unknown.parameter'
+ERROR_CODE_ACTIVE_FILTER_INVALID = 'active.filter.invalid'
+ERROR_CODE_PAGINATION_TYPE_INVALID = 'pagination.type.invalid'
+ERROR_CODE_INVALID_LIMIT = 'invalid.limit'
+ERROR_CODE_INVALID_OFFSET = 'invalid.offset'
+
+
 
 EMAIL_REGEX = r'^[\w\.-]+@[\w\.-]+\.\w+$'
 
@@ -54,7 +66,7 @@ DURACION_MAXIMA_HORAS = 3
 ZONA_HORARIA_ARGENTINA = timezone(timedelta(hours=-3))
 
 
-DB_URL = "mysql+pymysql://usuario:pass@localhost:3306/club"  # ajustar con .env
+#DB_URL = "mysql+pymysql://usuario:pass@localhost:3306/club"  # ajustar con .env
 
 # Horario del club
 HORA_APERTURA = 8
@@ -78,3 +90,8 @@ ESTADOS_VALIDOS = {ESTADO_CONFIRMADA, ESTADO_CANCELADA, ESTADO_FINALIZADA}
 
 # Zona horaria fija
 TZ_OFFSET = "-03:00"
+
+
+
+
+
