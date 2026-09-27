@@ -116,3 +116,16 @@ def validar_campos_permitidos(data: dict, permitidos: set):
             "El cuerpo contiene campos desconocidos",
             f"Campos no permitidos: {', '.join(sorted(desconocidos))}"
         )
+
+
+def construir_error_api(code: str, message: str, level: str = "error", description: str = "") -> dict:
+    return {
+        "errors": [
+            {
+                "code": code,
+                "message": message,
+                "level": level,
+                "description": description
+            }
+        ]
+    }
