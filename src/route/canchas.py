@@ -48,7 +48,6 @@ def get_canchas():
 @canchas_bp.route('/canchas', methods=['POST'])
 def post_cancha():
 
-# """Crear una nueva cancha."""
     body = request.get_json(silent=True)
     if body is None:
         return jsonify(construir_error_api(
@@ -87,7 +86,6 @@ def post_cancha():
 @canchas_bp.route('/canchas/disponibles', methods=['GET'])
 def get_canchas_disponibles():
  
- #"""Consultar canchas activas e independientes que estén libres durante un intervalo."""
     params, error_val = validar_consulta_disponibilidad(request.args)
     if error_val:
         if isinstance(error_val, tuple):
@@ -105,7 +103,6 @@ def get_canchas_disponibles():
 @canchas_bp.route('/canchas/<id>', methods=['GET'])
 def get_cancha_por_id(id):
  
- #"""Obtener los datos de una cancha por su ID."""
     cancha_id, error_val = validar_id_cancha(id)
     if error_val:
         if isinstance(error_val, tuple):
@@ -134,7 +131,6 @@ def get_cancha_por_id(id):
 @canchas_bp.route('/canchas/<id>', methods=['PATCH'])
 def patch_cancha(id):
  
- #"""Actualizar parcialmente los atributos de una cancha existente."""
     cancha_id, error_id = validar_id_cancha(id)
     if error_id:
         if isinstance(error_id, tuple):
@@ -181,7 +177,7 @@ def patch_cancha(id):
 
 @canchas_bp.route('/canchas/<id>', methods=['DELETE'])
 def delete_cancha(id):
-    #"""Eliminar una cancha si no tiene reservas asociadas."""
+    
     cancha_id, error_id = validar_id_cancha(id)
     if error_id:
         if isinstance(error_id, tuple):
