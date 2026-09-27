@@ -27,7 +27,6 @@ canchas_bp = Blueprint('canchas', __name__)
 @canchas_bp.route('/canchas', methods=['GET'])
 def get_canchas():
  
- #"""Listar canchas con paginación (_limit, _offset) y filtros opcionales."""
     filtros, error_val = validar_filtros_canchas(request.args)
     if error_val:
         if isinstance(error_val, tuple):
