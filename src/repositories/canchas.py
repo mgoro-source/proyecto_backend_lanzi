@@ -273,12 +273,10 @@ def tiene_reservas_asociadas(cancha_id):
 
 def eliminar(cancha_id):
     try:
-        # 1. Verificar si la cancha existe
         cancha, err = obtener_por_id(cancha_id)
         if err or not cancha:
             return False, {"code": "NOT_FOUND", "description": "La cancha solicitada no existe."}
 
-        # 2. Verificar si posee reservas asociadas
         posee_reservas, err_res = tiene_reservas_asociadas(cancha_id)
         if err_res:
             return False, {"code": "INTERNAL_ERROR", "description": err_res}
@@ -286,7 +284,6 @@ def eliminar(cancha_id):
         if posee_reservas:
             return False, {"code": "CONFLICT", "description": "La cancha tiene reservas asociadas."}
 
-        # 3. Eliminar si no tiene reservas
         sql = "DELETE FROM canchas WHERE id_cancha = :id_cancha"
         ejecutar_mutacion(sql, {"id_cancha": cancha_id})
         return True, None
