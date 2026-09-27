@@ -67,11 +67,14 @@ VALUES
 ('Tenis' ),
 ('Padel');
 
-INSERT INTO socios (nombre_socio, email_socio, activo)
+INSERT INTO socios (nombre_socio, email_socio)
 VALUES
 ('Juan Perez', 'jp@hotmail.com'),
-( 'Maria Lopez', 'ml@gmail.com', FALSE ),
 ('Lucas Gomez', 'lg@gmail.com');
+
+INSERT INTO socios (nombre_socio, email_socio, activo)
+VALUES
+('Maria Lopez', 'ml@gmail.com', FALSE);
 
 INSERT INTO canchas (nombre_cancha, techada, precio_hora, activa, id_deporte_cancha)
 VALUES

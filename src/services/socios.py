@@ -1,4 +1,4 @@
-from flask import abort
+from flask import abort, request
 from src.repositories.socios import (obtener_socio_por_email,
                                         insertar_socio, obtener_socio_por_id,
                                         obtener_todos_los_socios,
@@ -76,21 +76,28 @@ def listar_socios_service(parametros: dict) -> dict:
                                       offset=_offset)
     total_registros = contar_socios(nombre=nombre if nombre else None, activo=activo)
 
-    base_url = "/socios"
-    _first = f"{base_url}?_limit={_limit}&_offset=0"
+    base_url = f"{request.host_url.rstrip('/')}/socios"
+    query_filtros = ""
+    
+    if nombre:
+        query_filtros += f"&nombre={nombre}"
+    if activo_recibido is not None:
+        query_filtros += f"&activo={activo_recibido}"
+
+    _first = f"{base_url}?_limit={_limit}&_offset=0{query_filtros}"
     ultimo_offset = max(0, total_registros - _limit)
-    _last = f"{base_url}?_limit={_limit}&_offset={ultimo_offset}"
+    _last = f"{base_url}?_limit={_limit}&_offset={ultimo_offset}{query_filtros}"
     _prev = None
     
     if _offset > 0:
         prev_offset = max(0, _offset - _limit)
-        _prev = f"{base_url}?_limit={_limit}&_offset={prev_offset}"
+        _prev = f"{base_url}?_limit={_limit}&_offset={prev_offset}{query_filtros}"
 
     _next = None
     
     if _offset + _limit < total_registros:
         next_offset = _offset + _limit
-        _next = f"{base_url}?_limit={_limit}&_offset={next_offset}"
+        _next = f"{base_url}?_limit={_limit}&_offset={next_offset}{query_filtros}"
 
     return {"socios": socios, "_limit": _limit, "_offset": _offset, "_links": {"_first": _first,
                                                                                "_prev": _prev,
