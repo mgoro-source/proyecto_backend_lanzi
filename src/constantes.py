@@ -29,6 +29,13 @@ ERROR_CODE_ACTIVE_FILTER_INVALID = 'active.filter.invalid'
 ERROR_CODE_PAGINATION_TYPE_INVALID = 'pagination.type.invalid'
 ERROR_CODE_INVALID_LIMIT = 'invalid.limit'
 ERROR_CODE_INVALID_OFFSET = 'invalid.offset'
+ERROR_CODE_CANCHA_NOT_FOUND = 'cancha.not.found'
+ERROR_CODE_DEPORTE_NOT_FOUND = 'deporte.not.found'
+ERROR_CODE_CANCHA_HAS_RESERVATIONS = 'cancha.has.reservations'
+ERROR_CODE_NAME_INVALID = 'name.invalid'
+ERROR_CODE_PRICE_INVALID = 'price.invalid'
+ERROR_CODE_SPORT_INVALID = 'sport.invalid'
+ERROR_CODE_INTERNAL_ERROR = 'internal.server.error'
 
 
 
