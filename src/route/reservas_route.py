@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from src.services.reservas_services import (
     crear_reserva_service,
     cambiar_estado_service,
-    formatear_respuesta_reserva
+    _mapear_a_schema
 )
 from src.repositories.reservas_reposit import (
     listar_reservas,
