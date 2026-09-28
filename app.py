@@ -5,7 +5,7 @@ from src.constantes import BASE_URL
 from src.route.deportes import deportes_bp
 from src.route.canchas import canchas_bp
 from src.route.socios import socios_bp
-#from src.route.reservas import reservas_bp
+from src.route.reservas import reservas_bp
 #from src.route.extensiones import extensiones_bp
 
 from dotenv import load_dotenv
@@ -24,7 +24,7 @@ CORS(app)
 app.register_blueprint(deportes_bp, url_prefix=BASE_URL)
 app.register_blueprint(canchas_bp, url_prefix=BASE_URL)
 app.register_blueprint(socios_bp, url_prefix=BASE_URL)
-#app.register_blueprint(reservas_bp, url_prefix=BASE_URL)
+app.register_blueprint(reservas_bp, url_prefix=BASE_URL)
 #app.register_blueprint(extensiones_bp, url_prefix=BASE_URL)
 
 
