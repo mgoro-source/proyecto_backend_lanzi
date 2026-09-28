@@ -1,4 +1,4 @@
-import db
+from src import db
 from constantes import (
     ESTADO_CONFIRMADA,
     CONDICION_CREACION_EXITOSA,
