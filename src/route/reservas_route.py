@@ -47,7 +47,7 @@ def generar_hateoas_links(limit, offset, total, params_extra):
     return links
 
 @reservas_bp.route('/reservas', methods=['GET'])
-def listar_reservas():
+def obtener_reservas():
     try:
         limit = int(request.args.get('_limit', LIMITE_PAGINACION_DEFECTO))
         offset = int(request.args.get('_offset', OFFSET_PAGINACION_DEFECTO))
