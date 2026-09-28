@@ -5,7 +5,7 @@ from src.constantes import BASE_URL
 from src.route.deportes import deportes_bp
 from src.route.canchas import canchas_bp
 from src.route.socios import socios_bp
-from src.route.reservas import reservas_bp
+from src.route.reservas_route import reservas_bp
 #from src.route.extensiones import extensiones_bp
 
 from dotenv import load_dotenv
